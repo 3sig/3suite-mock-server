@@ -1,1 +1,47 @@
-test = "Hello World!"
+port = 1235
+# responses are either a single file or JSON
+files = ["test.png"]
+# if randomizeOrder is true, then a random file will be sent.
+# if randomizeOrder is true and asJson is true, then the list
+# will be shuffled before parsing the responseFormat
+randomizeOrder = false
+
+# if asJson is true, then the responseFormat will be respected
+asJson = true
+
+# time parameters define how long the server will wait before sending a response
+# this is used to mimic processing time and latency
+[time]
+base = 5000
+# a random amount of time up to the value of addRandom
+# is added to the base time to determine the response time
+addRandom = 1000
+
+# responseFormat is the most complex parameter
+# this creates the structure of the response JSON and allows
+# for base64 injection of files into the JSON.
+#
+# the number inside the responseReplacement block is the index of the file to use
+#
+# the following response format sends a base64 encoded image in
+# the format of an Automatic1111 stable diffusion txt2img response:
+# {
+#   "images" : [
+#     "iVBORw0KG..."
+#   ]
+# }
+#
+# remember that the responseFormat is TOML, so you must use
+# TOML syntax to define the structure of the JSON.
+[responseFormat]
+images = ["${0}"]
+
+# responseReplacement defines the syntax for replacing variables in the responseFormat
+# look at the example above and match against the indicator and end
+# to understand how it works.
+
+# the defaults for these are OK, but depending on the response necessary
+# you may need to change them.
+[responseReplacement]
+indicator = "${"
+end = "}"
