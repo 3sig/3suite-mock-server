@@ -17,6 +17,9 @@ package-json.lock
 # bun deploy file
 node_modules.bun
 
+# bun lockfile -- causing issues with the 3lib-config import
+bun.lockb
+
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 
