@@ -77,7 +77,7 @@ async function convertObject(obj, index) {
 
 let currentFileIndex = 0;
 async function handleRequest(req, res, method) {
-  let fileIndex = currentFileIndex++;
+  let fileIndex = ++currentFileIndex % config.get("files").length;
   if (config.get("randomizeOrder", false)) {
     fileIndex = Math.floor(Math.random() * config.get("files").length);
   }
