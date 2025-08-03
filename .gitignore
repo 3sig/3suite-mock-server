@@ -18,6 +18,7 @@ package-json.lock
 node_modules.bun
 
 # bun lockfile -- causing issues with the 3lib-config import
+bun.lock
 bun.lockb
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
