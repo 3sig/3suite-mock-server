@@ -4,7 +4,14 @@ mock-server is a configurable server that sends a response to any request, eithe
 
 mock-server is useful for responding to apps that expect complex response (AKA AI generation endpoinds) that happen after some delay.
 
-for configuration, see the [configuration file](./config.toml), and refer to the [3lib-config library docs](https://github.com/3sig/3lib-config)
+for configuration, see the [configuration file](./config.json5), and refer to the [3lib-config library docs](https://github.com/3sig/3lib-config)
+
+## usage
+
+### creating a release
+
+ensure that you are in a fully committed state before creating a tag.
+run `npm run release` (or `bun run release`) and follow the prompts.
 
 ### macOS builds
 
